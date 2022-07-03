@@ -11,7 +11,7 @@ A cli to browse and download movies and tv shows from [akoam](https://akwam.to)
     akoam-downlaoder [options] <query>
     Options:
           -w, --workers=<number-of-workers> number of working threads in parsing
-          -q, --quality=<quality>           the quality of video to download(FHD/1080p, HD/720p, SD480/480p, SD360/360p, SD240/240p), falls back to the best quality found.
+          -q, --quality=<quality>           the quality of video to download (FHD/1080p, HD/720p, SD480/480p, SD360/360p, SD240/240p), default is 720p, falls back to the best quality found.
           -s, --start=<start-episode>       start episode to download (works only for tv shows only, ignored otherwise)
           -e, --end=<end-episode>           last episode to download  (works only for tv shows only, ignored otherwise)
     Operations:
