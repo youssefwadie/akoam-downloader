@@ -27,7 +27,7 @@ akoam-downloader -v  0.00s user 0.00s system 98% cpu 0.005 total
 ```
 ### On HostSpotVM
 ```bash
-    $ time java -jar akoam-downloader.jar -v
-    akoam-downloader v1.0-SNAPSHOT
-    java -jar akoam-downloader.jar -v  0.23s user 0.03s system 146% cpu 0.175 total
+$ time java -jar akoam-downloader.jar -v
+akoam-downloader v1.0-SNAPSHOT
+java -jar akoam-downloader.jar -v  0.23s user 0.03s system 146% cpu 0.175 total
 ```
