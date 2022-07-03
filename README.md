@@ -18,3 +18,16 @@ A cli to browse and download movies and tv shows from [akoam](https://akwam.to)
            -v, --version                    print the version information and exit
            -h, --help                       print this help and exit
 ```
+
+### Native Build
+```bash
+$ time akoam-downloader -v
+akoam-downloader v1.0-SNAPSHOT
+akoam-downloader -v  0.00s user 0.00s system 98% cpu 0.005 total
+```
+### On HostSpotVM
+```bash
+    $ time java -jar akoam-downloader.jar -v
+    akoam-downloader v1.0-SNAPSHOT
+    java -jar akoam-downloader.jar -v  0.23s user 0.03s system 146% cpu 0.175 total
+```
