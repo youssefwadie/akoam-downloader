@@ -1,9 +1,10 @@
-package webscraping.akoam.service;
+package com.github.youssefwadie.akoamdownloader.service;
 
+import com.github.youssefwadie.akoamdownloader.model.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import webscraping.akoam.exception.CannotBeScrapedException;
+import com.github.youssefwadie.akoamdownloader.exception.CannotBeScrapedException;
 import webscraping.akoam.model.*;
 
 import java.io.File;

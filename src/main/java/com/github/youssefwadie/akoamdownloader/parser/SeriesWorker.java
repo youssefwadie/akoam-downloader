@@ -1,9 +1,9 @@
-package webscraping.akoam.parser;
+package com.github.youssefwadie.akoamdownloader.parser;
 
-import webscraping.akoam.model.DownloadLinkPagePair;
-import webscraping.akoam.model.Episode;
-import webscraping.akoam.model.Quality;
-import webscraping.akoam.service.ParseService;
+import com.github.youssefwadie.akoamdownloader.model.DownloadLinkPagePair;
+import com.github.youssefwadie.akoamdownloader.model.Episode;
+import com.github.youssefwadie.akoamdownloader.model.Quality;
+import com.github.youssefwadie.akoamdownloader.service.ParseService;
 
 import java.io.IOException;
 import java.util.ArrayList;

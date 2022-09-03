@@ -1,4 +1,4 @@
-package webscraping.akoam.service;
+package com.github.youssefwadie.akoamdownloader.service;
 
 import java.io.BufferedReader;
 import java.io.IOException;

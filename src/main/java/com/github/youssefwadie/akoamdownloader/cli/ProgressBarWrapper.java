@@ -1,7 +1,7 @@
-package webscraping.akoam.cli;
+package com.github.youssefwadie.akoamdownloader.cli;
 
 import me.tongfei.progressbar.ProgressBar;
-import webscraping.akoam.ui.AbstractProgressBarWrapper;
+import com.github.youssefwadie.akoamdownloader.ui.AbstractProgressBarWrapper;
 
 public class ProgressBarWrapper extends AbstractProgressBarWrapper<ProgressBar> {
     public ProgressBarWrapper(int elements) {

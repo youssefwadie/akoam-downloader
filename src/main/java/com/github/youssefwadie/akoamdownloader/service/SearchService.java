@@ -1,9 +1,9 @@
-package webscraping.akoam.service;
+package com.github.youssefwadie.akoamdownloader.service;
 
+import com.github.youssefwadie.akoamdownloader.model.SearchResult;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import webscraping.akoam.model.SearchResult;
 
 import java.io.IOException;
 import java.net.URI;

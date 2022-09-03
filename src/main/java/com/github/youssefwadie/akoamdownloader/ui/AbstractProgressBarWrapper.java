@@ -1,4 +1,4 @@
-package webscraping.akoam.ui;
+package com.github.youssefwadie.akoamdownloader.ui;
 
 public abstract class AbstractProgressBarWrapper<T> implements AutoCloseable {
     protected T progressBar;

@@ -1,10 +1,10 @@
-package webscraping.akoam.parser;
+package com.github.youssefwadie.akoamdownloader.parser;
 
+import com.github.youssefwadie.akoamdownloader.model.DownloadLinkPagePair;
+import com.github.youssefwadie.akoamdownloader.model.Quality;
 import lombok.NonNull;
-import webscraping.akoam.model.DownloadLinkPagePair;
-import webscraping.akoam.model.Movie;
-import webscraping.akoam.model.Quality;
-import webscraping.akoam.service.ParseService;
+import com.github.youssefwadie.akoamdownloader.model.Movie;
+import com.github.youssefwadie.akoamdownloader.service.ParseService;
 
 import java.io.IOException;
 import java.util.List;

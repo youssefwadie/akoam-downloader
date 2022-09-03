@@ -1,4 +1,4 @@
-package webscraping.akoam.model;
+package com.github.youssefwadie.akoamdownloader.model;
 
 import java.net.URI;
 import java.util.Objects;

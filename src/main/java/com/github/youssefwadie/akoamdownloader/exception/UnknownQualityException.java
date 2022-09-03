@@ -1,4 +1,4 @@
-package webscraping.akoam.exception;
+package com.github.youssefwadie.akoamdownloader.exception;
 
 public class UnknownQualityException extends RuntimeException {
 

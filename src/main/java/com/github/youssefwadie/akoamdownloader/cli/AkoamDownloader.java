@@ -1,12 +1,13 @@
-package webscraping.akoam.cli;
+package com.github.youssefwadie.akoamdownloader.cli;
 
+import com.github.youssefwadie.akoamdownloader.model.*;
 import picocli.CommandLine;
-import webscraping.akoam.exception.CannotBeScrapedException;
+import com.github.youssefwadie.akoamdownloader.exception.CannotBeScrapedException;
 import webscraping.akoam.model.*;
-import webscraping.akoam.parser.MovieParser;
-import webscraping.akoam.parser.SeriesParser;
-import webscraping.akoam.service.ParseService;
-import webscraping.akoam.service.SearchService;
+import com.github.youssefwadie.akoamdownloader.parser.MovieParser;
+import com.github.youssefwadie.akoamdownloader.parser.SeriesParser;
+import com.github.youssefwadie.akoamdownloader.service.ParseService;
+import com.github.youssefwadie.akoamdownloader.service.SearchService;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

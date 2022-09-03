@@ -1,4 +1,4 @@
-package webscraping.akoam.cli;
+package com.github.youssefwadie.akoamdownloader.cli;
 
 import lombok.NoArgsConstructor;
 import picocli.CommandLine;

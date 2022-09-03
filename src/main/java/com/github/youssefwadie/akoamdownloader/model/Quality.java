@@ -1,7 +1,7 @@
-package webscraping.akoam.model;
+package com.github.youssefwadie.akoamdownloader.model;
 
 import lombok.EqualsAndHashCode;
-import webscraping.akoam.exception.UnknownQualityException;
+import com.github.youssefwadie.akoamdownloader.exception.UnknownQualityException;
 
 import java.net.URI;
 import java.util.EnumMap;

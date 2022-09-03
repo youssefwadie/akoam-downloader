@@ -1,4 +1,4 @@
-package webscraping.akoam.cli;
+package com.github.youssefwadie.akoamdownloader.cli;
 
 public class Colors {
     public static final String ANSI_RESET = "\u001B[0m";

@@ -1,12 +1,12 @@
-package webscraping.akoam.parser;
+package com.github.youssefwadie.akoamdownloader.parser;
 
+import com.github.youssefwadie.akoamdownloader.model.DownloadLinkPagePair;
+import com.github.youssefwadie.akoamdownloader.model.Episode;
+import com.github.youssefwadie.akoamdownloader.model.Quality;
 import lombok.RequiredArgsConstructor;
-import webscraping.akoam.exception.CannotBeScrapedException;
-import webscraping.akoam.model.DownloadLinkPagePair;
-import webscraping.akoam.model.Episode;
-import webscraping.akoam.model.Quality;
-import webscraping.akoam.model.Series;
-import webscraping.akoam.ui.AbstractProgressBarWrapper;
+import com.github.youssefwadie.akoamdownloader.exception.CannotBeScrapedException;
+import com.github.youssefwadie.akoamdownloader.model.Series;
+import com.github.youssefwadie.akoamdownloader.ui.AbstractProgressBarWrapper;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
