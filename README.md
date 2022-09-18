@@ -4,7 +4,7 @@ A cli to browse and download movies and tv shows from [akoam](https://akwam.to)
 
 #### dependencies
 1. aria2 (download manager)
-1. any JRE V11+ installation
+1. JRE 11 or higher installation
 
 
 #### To run the application with the [uber jar](https://github.com/youssefwadie/akoam-downloader/releases)
