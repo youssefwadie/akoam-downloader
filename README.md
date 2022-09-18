@@ -9,14 +9,14 @@ A cli to browse and download movies and tv shows from [akoam](https://akwam.to)
 
 #### To run the application with the [uber jar](https://github.com/youssefwadie/akoam-downloader/releases)
 `$ java -jar <path-to-akoam-downloader-jar>`
-#### There's a statically linked build under the [releases](https://github.com/youssefwadie/akoam-downloader/releases) with GCC 12.1.0 for Linux AMD64 
+#### There's a statically linked build under the [releases](https://github.com/youssefwadie/akoam-downloader/releases) with GCC 12.2.0 for Linux AMD64 
 
 ### Usage
 ```
 akoam-downloader [operation]
 akoam-downlaoder [options] <query>
 Options:
-  -w, --workers=<number-of-workers> number of working threads in parsing
+  -w, --workers=<number-of-workers> number of working processors (maximum is 3/4 of available processors)
   -q, --quality=<quality>           the quality of video to download (FHD/1080p, HD/720p, SD480/480p, SD360/360p, SD240/240p), default is 720p, falls back to the best quality found.
   -s, --start=<start-episode>       start episode to download (works only for tv shows only, ignored otherwise)
   -e, --end=<end-episode>           last episode to download  (works only for tv shows only, ignored otherwise)
@@ -28,12 +28,12 @@ Operations:
 ### Native Build
 ```bash
 $ time akoam-downloader -v
-akoam-downloader v1.0-SNAPSHOT
-akoam-downloader -v  0.00s user 0.00s system 98% cpu 0.005 total
+akoam-downloader v1.1
+akoam-downloader -v  0.01s user 0.00s system 98% cpu 0.006 total
 ```
 ### On HostSpotVM
 ```bash
 $ time java -jar akoam-downloader.jar -v
-akoam-downloader v1.0-SNAPSHOT
-java -jar akoam-downloader.jar -v  0.23s user 0.03s system 146% cpu 0.175 total
+akoam-downloader v1.1
+java -jar akoam-downloader.jar -v  0.23s user 0.03s system 165% cpu 0.157 total
 ```

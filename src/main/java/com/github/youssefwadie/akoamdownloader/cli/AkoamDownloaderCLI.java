@@ -37,7 +37,7 @@ public class AkoamDownloaderCLI implements Runnable {
     private boolean usageHelpRequested;
 
 
-    @CommandLine.Option(names = {"-w", "--workers"}, description = "number of working threads in parsing", defaultValue = "4", paramLabel = "number-of-workers")
+    @CommandLine.Option(names = {"-w", "--workers"}, description = "number of working processors (maximum is 3/4 of available processors)", defaultValue = "4", paramLabel = "number-of-workers")
     private int numberOfWorkers;
 
     private final Parser parser;
@@ -69,7 +69,10 @@ public class AkoamDownloaderCLI implements Runnable {
                 } else if (result.type() == SearchResult.SearchResultType.SERIES) {
                     try {
                         Series series = new Series(result.uri());
-                        parser.setNumOfWorkers(numberOfWorkers);
+                        int numberOfWorkers = parser.setNumOfWorkers(this.numberOfWorkers);
+                        if (numberOfWorkers != this.numberOfWorkers) {
+                            System.out.printf("%s%snumber of workers is %d%s%n", AnsiCodes.BOLD_TEXT, AnsiCodes.YELLOW_TEXT, numberOfWorkers, AnsiCodes.RESET_TEXT);
+                        }
                         Path downloadLinks = parser.parserSeries(series, quality, startEpisode, endEpisode);
                         downloadPrompt(downloadLinks);
                     } catch (ExecutionException | InterruptedException e) {
@@ -95,21 +98,24 @@ public class AkoamDownloaderCLI implements Runnable {
 
         for (int i = 0; i < results.size(); ++i) {
             String color = getColor(results.get(i).type());
-            System.out.format("%-2d - %s%s%s%n", i + 1, color, results.get(i).title(), Colors.ANSI_RESET);
+            System.out.format("%s%s%-2d %s%s%s%n", AnsiCodes.BOLD_TEXT, AnsiCodes.PURPLE_TEXT, i + 1, color, results.get(i).title(), AnsiCodes.RESET_TEXT);
         }
         int chosenNumber = -1;
         while (true) {
-            System.out.printf("%s[+] 1 - %d: %s", Colors.ANSI_PURPLE, results.size(), Colors.ANSI_RESET);
+            System.out.printf("%s%s%s%s ", AnsiCodes.BOLD_TEXT, AnsiCodes.BLUE_TEXT, AnsiCodes.RIGHT_POINTING_MARK, AnsiCodes.RESET_TEXT);
             if (StdIn.hasNextInt()) {
                 chosenNumber = StdIn.nextInt();
                 StdIn.nextLine();
                 if (chosenNumber <= results.size() && chosenNumber > 0) {
                     break;
                 } else {
-                    System.out.printf("%sOut of range: %d%s%n", Colors.ANSI_RED, chosenNumber, Colors.ANSI_RESET);
+                    System.out.printf("%s%sOut of range%s%n", AnsiCodes.BOLD_TEXT, AnsiCodes.YELLOW_TEXT, AnsiCodes.RESET_TEXT);
                 }
             } else {
-                System.out.printf("%sInvalid: %s%s%n", Colors.ANSI_RED, StdIn.nextLine(), Colors.ANSI_RESET);
+                String input = StdIn.nextLine();
+                if (input.isEmpty()) {
+                    System.out.printf("%s%sInvalid input%s%n", AnsiCodes.BOLD_TEXT, AnsiCodes.YELLOW_TEXT, AnsiCodes.RESET_TEXT);
+                }
             }
         }
         return results.get(chosenNumber - 1);
@@ -117,14 +123,14 @@ public class AkoamDownloaderCLI implements Runnable {
 
     private String getColor(SearchResult.SearchResultType type) {
         if (type == SearchResult.SearchResultType.SERIES) {
-            return Colors.ANSI_PURPLE;
+            return AnsiCodes.GREEN_TEXT;
         } else {
-            return Colors.ANSI_CYAN;
+            return AnsiCodes.CYAN_TEXT;
         }
     }
 
     private void downloadPrompt(Path downloadLinksFilePath) throws IOException {
-        System.out.print("Proceed with downloading? [y/N] ");
+        System.out.printf("%sProceed with downloading? [y/N] %s", AnsiCodes.BOLD_TEXT, AnsiCodes.RESET_TEXT);
         String input = StdIn.nextLine().toUpperCase();
         if (input.equals("Y") || input.equals("YES")) {
             downloadService.download(downloadLinksFilePath);

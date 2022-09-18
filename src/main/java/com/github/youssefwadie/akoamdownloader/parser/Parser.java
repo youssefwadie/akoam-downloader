@@ -1,6 +1,6 @@
 package com.github.youssefwadie.akoamdownloader.parser;
 
-import com.github.youssefwadie.akoamdownloader.cli.Colors;
+import com.github.youssefwadie.akoamdownloader.cli.AnsiCodes;
 import com.github.youssefwadie.akoamdownloader.exception.CannotBeScrapedException;
 import com.github.youssefwadie.akoamdownloader.injector.annotations.DependsOn;
 import com.github.youssefwadie.akoamdownloader.model.*;
@@ -26,20 +26,28 @@ public class Parser {
     private final LinksParser linksParser;
     private final HttpClient httpClient;
 
+    private final int availableProcessors;
+
     public Parser(@DependsOn("linksParser") LinksParser linksParser,
                   @DependsOn("httpClient") HttpClient httpClient) {
 
         this.linksParser = linksParser;
         this.httpClient = httpClient;
-        this.numOfWorkers = 4;
+        this.availableProcessors = Runtime.getRuntime().availableProcessors();
+        this.numOfWorkers = availableProcessors / 2;
     }
 
     public int getNumOfWorkers() {
         return numOfWorkers;
     }
 
-    public void setNumOfWorkers(int numOfWorkers) {
+    public int setNumOfWorkers(int numOfWorkers) {
+        final int maximumNumberOfWorkers = (int) (availableProcessors * (3.0 / 4.0));
+        if (maximumNumberOfWorkers < numOfWorkers) {
+            numOfWorkers = maximumNumberOfWorkers;
+        }
         this.numOfWorkers = numOfWorkers;
+        return this.numOfWorkers;
     }
 
     public DownloadLinkPagePair parserMovie(Movie movie, Quality.VideoQuality quality) throws IOException {
@@ -155,7 +163,7 @@ public class Parser {
             }
 
             if (episodes.size() != pairs.size()) {
-                System.err.printf("%sSome episodes were not parsed.%s%n", Colors.ANSI_RED, Colors.ANSI_RESET);
+                System.err.printf("%sSome episodes were not parsed.%s%n", AnsiCodes.RED_TEXT, AnsiCodes.RESET_TEXT);
             }
             for (int i = 0, size = Integer.min(pairs.size(), episodes.size()); i < size; i++) {
                 Episode episode = episodes.get(i);
