@@ -1,5 +1,6 @@
 package com.github.youssefwadie.akoamdownloader.service;
 
+import com.github.youssefwadie.akoamdownloader.injector.annotations.DependsOn;
 import com.github.youssefwadie.akoamdownloader.model.SearchResult;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -14,19 +15,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchService {
-    private static URI baseURI = null;
+    private final HttpClient httpClient;
+    private final URI baseURI;
 
-    public static List<SearchResult> search(String searchTerm) throws URISyntaxException, IOException {
-        if (baseURI == null) {
-            baseURI = new URI("https://akwam.to");
-        }
+    public SearchService(@DependsOn("httpClient") HttpClient httpClient) throws URISyntaxException {
+        this.httpClient = httpClient;
+        this.baseURI = new URI("https://akwam.to");
+    }
+
+    public List<SearchResult> search(String searchTerm) throws URISyntaxException, IOException {
 
         URI queryURI = new URI("/search?q=" + URLEncoder.encode(searchTerm, StandardCharsets.UTF_8));
         URI absoluteURI = baseURI.resolve(queryURI);
 
         List<SearchResult> searchResults = new ArrayList<>();
 
-        Document searchPage = Jsoup.parse(RequestsManager.sendGET(absoluteURI));
+        Document searchPage = Jsoup.parse(httpClient.get(absoluteURI));
 
         for (Element entry : searchPage.select("h3.entry-title a")) {
             String title = entry.text();

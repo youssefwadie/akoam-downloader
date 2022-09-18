@@ -5,7 +5,7 @@ import com.github.youssefwadie.akoamdownloader.ui.AbstractProgressBarWrapper;
 
 public class ProgressBarWrapper extends AbstractProgressBarWrapper<ProgressBar> {
     public ProgressBarWrapper(int elements) {
-        super.progressBar = new ProgressBar("Working on", elements);
+        super.progressBar = new ProgressBar("Parsed", elements);
     }
 
     @Override

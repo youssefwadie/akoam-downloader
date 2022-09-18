@@ -7,11 +7,11 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
 
-public class RequestsManager {
-    private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101 Firefox/102.0";
+public class HttpClient {
+    private final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101 Firefox/102.0";
 
 
-    public static String sendGET(URI uri) throws IOException {
+    public String get(URI uri) throws IOException {
         HttpURLConnection connection = (HttpURLConnection) uri.toURL().openConnection();
         connection.setRequestMethod("GET");
         connection.setRequestProperty("User-Agent", USER_AGENT);

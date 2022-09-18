@@ -1,24 +1,29 @@
 package com.github.youssefwadie.akoamdownloader.cli;
 
+import com.github.youssefwadie.akoamdownloader.injector.Container;
+import com.github.youssefwadie.akoamdownloader.service.StdIn;
 import picocli.CommandLine;
 
-import java.util.Scanner;
 
 public class Main {
-    public static final Scanner scanner = new Scanner(System.in);
-
 
     public static void main(String[] args) {
         try {
-            CommandLine cmd = new CommandLine(new AkoamDownloader());
-            cmd.setExecutionExceptionHandler(new ExecutionExceptionHandler());
-            cmd.setParameterExceptionHandler(new ParameterMessageHandler());
-            int exitCode = cmd.execute(args);
-            if (exitCode != 0) {
-                System.exit(1);
+            try (Container container = new Container()) {
+                AkoamDownloaderCLI akoamDownloaderCLI = container.getBean(AkoamDownloaderCLI.class);
+                CommandLine cmd = new CommandLine(akoamDownloaderCLI);
+                cmd.setExecutionExceptionHandler(new ExecutionExceptionHandler());
+                cmd.setParameterExceptionHandler(new ParameterMessageHandler());
+                int exitCode = cmd.execute(args);
+                if (exitCode != 0) {
+                    System.exit(1);
+                }
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         } finally {
-            scanner.close();
+            StdIn.close();
         }
     }
 }

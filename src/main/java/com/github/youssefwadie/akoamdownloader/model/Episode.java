@@ -9,8 +9,6 @@ public final class Episode {
     private final String name;
     private final URI uri;
 
-    private DownloadLinkPagePair downloadLinkPagePair;
-
     public Episode(int number, String name, URI uri) {
         this.number = number;
         this.name = name;
@@ -52,11 +50,4 @@ public final class Episode {
                 "uri=" + uri + ']';
     }
 
-    public DownloadLinkPagePair getDownloadLinkPagePair() {
-        return downloadLinkPagePair;
-    }
-
-    public void setDownloadLinkPagePair(DownloadLinkPagePair downloadLinkPagePair) {
-        this.downloadLinkPagePair = downloadLinkPagePair;
-    }
 }
