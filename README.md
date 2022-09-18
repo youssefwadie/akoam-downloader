@@ -1,7 +1,13 @@
 # akoam-downloader
 A cli to browse and download movies and tv shows from [akoam](https://akwam.to)
 
-#### To run the application with the [uber jar](https://github.com/youssefwadie/akoam-downloader/releases), you should have JRE 17+ installed
+
+#### dependencies
+1. aria2 (download manager)
+1. any JRE V11+ installation
+
+
+#### To run the application with the [uber jar](https://github.com/youssefwadie/akoam-downloader/releases)
 `$ java -jar <path-to-akoam-downloader-jar>`
 #### There's a statically linked build under the [releases](https://github.com/youssefwadie/akoam-downloader/releases) with GCC 12.1.0 for Linux AMD64 
 

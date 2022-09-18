@@ -94,10 +94,7 @@ public class AkoamDownloaderCLI implements Runnable {
 
 
         for (int i = 0; i < results.size(); ++i) {
-            String color = switch (results.get(i).type()) {
-                case MOVIE -> Colors.ANSI_CYAN;
-                case SERIES -> Colors.ANSI_PURPLE;
-            };
+            String color = getColor(results.get(i).type());
             System.out.format("%-2d - %s%s%s%n", i + 1, color, results.get(i).title(), Colors.ANSI_RESET);
         }
         int chosenNumber = -1;
@@ -116,6 +113,14 @@ public class AkoamDownloaderCLI implements Runnable {
             }
         }
         return results.get(chosenNumber - 1);
+    }
+
+    private String getColor(SearchResult.SearchResultType type) {
+        if (type == SearchResult.SearchResultType.SERIES) {
+            return Colors.ANSI_PURPLE;
+        } else {
+            return Colors.ANSI_CYAN;
+        }
     }
 
     private void downloadPrompt(Path downloadLinksFilePath) throws IOException {

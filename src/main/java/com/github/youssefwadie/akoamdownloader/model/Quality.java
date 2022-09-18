@@ -20,13 +20,18 @@ public class Quality {
 
         @Override
         public String toString() {
-            return switch (this) {
-                case FHD -> "1080p";
-                case HD -> "720p";
-                case SD480 -> "480p";
-                case SD360 -> "360p";
-                case SD240 -> "240p";
-            };
+            switch (this) {
+                case FHD:
+                    return "1080p";
+                case HD:
+                    return "720p";
+                case SD480:
+                    return "480p";
+                case SD360:
+                    return "360p";
+                default:
+                    return "240p";
+            }
         }
     }
 

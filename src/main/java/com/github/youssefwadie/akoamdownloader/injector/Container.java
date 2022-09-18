@@ -35,7 +35,7 @@ public class Container implements AutoCloseable {
             } else {
                 DependsOn dependsOn = parameter.getAnnotation(DependsOn.class);
                 if (!dependsOn.value().equals(bean.getName())) {
-                    throw new RuntimeException("Failed to satisfy the dependencies for %s".formatted(clazz.getName()));
+                    throw new RuntimeException(String.format("Failed to satisfy the dependencies for %s", clazz.getName()));
                 }
                 constructorArguments.add(bean.getInstance());
             }
