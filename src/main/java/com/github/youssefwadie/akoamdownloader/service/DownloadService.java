@@ -7,6 +7,7 @@ import java.nio.file.Path;
 
 public class DownloadService {
 
+    public DownloadService() {}
 
     public void download(URI downloadLink, Path downloadPath) throws IOException {
         File file = downloadPath.toFile();

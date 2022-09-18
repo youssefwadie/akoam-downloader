@@ -8,19 +8,22 @@ import java.net.URI;
 import java.net.URL;
 
 public class HttpClient {
-    private final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101 Firefox/102.0";
+    private final String userAgent;
 
+    public HttpClient() {
+        userAgent = "Mozilla/5.0 (Windows NT 10.0; rv:102.0) Gecko/20100101 Firefox/102.0";
+    }
 
     public String get(URI uri) throws IOException {
         HttpURLConnection connection = (HttpURLConnection) uri.toURL().openConnection();
         connection.setRequestMethod("GET");
-        connection.setRequestProperty("User-Agent", USER_AGENT);
+        connection.setRequestProperty("User-Agent", userAgent);
         connection.setInstanceFollowRedirects(false);
 
         int responseCode = connection.getResponseCode();
         while (responseCode == HttpURLConnection.HTTP_MOVED_PERM || responseCode == HttpURLConnection.HTTP_MOVED_TEMP) {
             connection = (HttpURLConnection) new URL(connection.getHeaderField("Location")).openConnection();
-            connection.setRequestProperty("User-Agent", USER_AGENT);
+            connection.setRequestProperty("User-Agent", userAgent);
             connection.setRequestMethod("GET");
             connection.setInstanceFollowRedirects(false);
             responseCode = connection.getResponseCode();

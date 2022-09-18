@@ -1,0 +1,54 @@
+[
+  {
+    "name" : "com.github.youssefwadie.akoamdownloader.parser.Parser",
+    "queryAllDeclaredConstructors" : true,
+    "queryAllPublicConstructors" : true,
+    "methods": [
+      {
+        "name": "<init>", "parameterTypes": [
+          "com.github.youssefwadie.akoamdownloader.parser.LinksParser",
+          "com.github.youssefwadie.akoamdownloader.service.HttpClient"
+        ]
+      }
+    ]
+  },
+  {
+    "name" : "com.github.youssefwadie.akoamdownloader.service.SearchService",
+    "queryAllDeclaredConstructors" : true,
+    "queryAllPublicConstructors" : true,
+    "methods" : [
+      { "name" : "<init>", "parameterTypes" : ["com.github.youssefwadie.akoamdownloader.service.HttpClient"] }
+    ]
+  },
+  {
+    "name" : "com.github.youssefwadie.akoamdownloader.parser.LinksParser",
+    "queryAllDeclaredConstructors" : true,
+    "queryAllPublicConstructors" : true,
+    "methods" : [
+      { "name" : "<init>", "parameterTypes" : ["com.github.youssefwadie.akoamdownloader.service.HttpClient"] }
+    ]
+  },
+  {
+    "name" : "com.github.youssefwadie.akoamdownloader.service.HttpClient",
+    "queryAllDeclaredConstructors" : true,
+    "queryAllPublicConstructors" : true,
+    "methods" : [
+      { "name" : "<init>", "parameterTypes" : [] }
+    ]
+  },
+  {
+    "name" : "com.github.youssefwadie.akoamdownloader.service.DownloadService",
+    "queryAllDeclaredConstructors" : true,
+    "queryAllPublicConstructors" : true,
+    "methods" : [
+      { "name" : "<init>", "parameterTypes" : [] }
+    ]
+  },
+  {
+    "name": "java.io.Closeable",
+    "queriedMethods" : [
+      { "name" : "close" }
+    ]
+  }
+]
+
