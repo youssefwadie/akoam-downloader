@@ -1,7 +1,7 @@
 package com.github.youssefwadie.akoamdownloader.model;
 
-import lombok.EqualsAndHashCode;
 import com.github.youssefwadie.akoamdownloader.exception.UnknownQualityException;
+import lombok.EqualsAndHashCode;
 
 import java.net.URI;
 import java.util.EnumMap;

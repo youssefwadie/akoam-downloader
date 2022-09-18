@@ -1,8 +1,8 @@
 package com.github.youssefwadie.akoamdownloader.parser;
 
-import com.github.youssefwadie.akoamdownloader.injector.annotations.DependsOn;
 import com.github.youssefwadie.akoamdownloader.cli.Colors;
 import com.github.youssefwadie.akoamdownloader.exception.CannotBeScrapedException;
+import com.github.youssefwadie.akoamdownloader.injector.annotations.DependsOn;
 import com.github.youssefwadie.akoamdownloader.model.*;
 import com.github.youssefwadie.akoamdownloader.service.HttpClient;
 import org.jsoup.Jsoup;

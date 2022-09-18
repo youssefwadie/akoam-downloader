@@ -1,7 +1,7 @@
 package com.github.youssefwadie.akoamdownloader.parser;
 
-import com.github.youssefwadie.akoamdownloader.injector.annotations.DependsOn;
 import com.github.youssefwadie.akoamdownloader.exception.CannotBeScrapedException;
+import com.github.youssefwadie.akoamdownloader.injector.annotations.DependsOn;
 import com.github.youssefwadie.akoamdownloader.model.DownloadLinkPagePair;
 import com.github.youssefwadie.akoamdownloader.model.Quality;
 import com.github.youssefwadie.akoamdownloader.service.HttpClient;
